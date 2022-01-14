@@ -36,3 +36,9 @@
 -- +-------------------------------+------------+-------------+----------------------+
 
 
+SELECT teams.name, players.first_name, players.last_name, Max(stats.home_runs)
+FROM stats
+    INNER JOIN teams ON teams.id = stats.team_id
+    INNER JOIN players ON players.id = stats.player_id
+WHERE teams.year = 2019
+Group BY teams.name;
